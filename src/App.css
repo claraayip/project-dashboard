@@ -1,42 +1,129 @@
-/* GLOBAL */
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #0f172a;
-  color: white;
+  font-family: "Segoe UI", sans-serif;
+  background: #F4EDE7;
+  color: #111827;
 }
 
-.container {
+/* LAYOUT */
+.layout {
+  display: flex;
+  height: 100vh;       /* WAJIB */
+  overflow: hidden;  
+}
+
+/* SIDEBAR */
+.logo-section {
+  text-align: center;
+}
+
+.logo {
+  width: 100px;
+  margin-bottom: 30px;
+}
+
+.sidebar {
+  width: 220px;
+  background: white;
+  height: 100vh;
   padding: 20px;
+  border-right: 1px solid #ddd;
+ 
+  display: flex;
+  flex-direction: column;
 }
 
-/* TITLE */
-.title {
-  font-size: 28px;
+.sidebar h2 {
+  margin-bottom: 20px;
+  font-size: 20px;
   font-weight: bold;
   margin-bottom: 20px;
+  color: #41431B;
 }
 
-/* FILTER */
-.filter-container {
+.sidebar-top {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebar-bottom {
+  margin-top: auto;
+  margin-bottom: 30px;
+}
+
+.menu {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-item {
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icon {
+  font-size: 14px;
+}
+
+.menu-item.active {
+  background: #ede9fe;
+  color: #6d28d9;
+  font-weight: 500;
+}
+
+/* MAIN */
+.main {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* HEADER */
+.header {
+  background: #99bb9b;
+  padding: 20px;
+  border-radius: 12px;
   margin-bottom: 20px;
 }
 
-.button {
-  padding: 6px 12px;
-  margin-right: 8px;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-  background: #1e293b;
+/* STATS */
+.stats {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.stat-box {
+  flex: 1;
+  padding: 15px;
+  border-radius: 10px;
   color: white;
 }
 
-.button.active {
-  background: #3b82f6;
+.stat-box:nth-child(1) {
+  background: #431b1b;
 }
 
-/* GRID */
+.stat-box:nth-child(2) {
+  background: #be81b9;
+}
+
+.stat-box:nth-child(3) {
+  background: #edd146;
+}
+
+.stat-box:nth-child(4) {
+  background: #94a3b8;
+}
+
+/* GRID PROJECT */
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -45,72 +132,42 @@ body {
 
 /* CARD */
 .card {
-  background: #1e293b;
+  background:#E4DFB5;
   padding: 16px;
   border-radius: 12px;
-  border: 1px solid #334155;
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-3px);
-}
-
-/* PROGRESS BAR */
-.progress-bar {
-  height: 6px;
-  background: #0f172a;
-  border-radius: 10px;
-  overflow: hidden;
-  margin: 8px 0;
-}
-
-.progress-fill {
-  height: 100%;
-  background: #22c55e;
+  border: 1px solid #ddd;
 }
 
 /* TASK */
 .task {
   padding: 10px;
   border-radius: 8px;
-  margin-bottom: 10px;
-  background: #0f172a;
+  margin-top: 10px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-}
-
-/* STATUS COLOR */
-.done {
-  border-left: 4px solid #22c55e;
-}
-
-.progress {
-  border-left: 4px solid #3b82f6;
-}
-
-.todo {
-  border-left: 4px solid #64748b;
+  background: #f9fafb;
 }
 
 /* BADGE */
 .badge {
-  padding: 3px 8px;
+  padding: 4px 10px;
   border-radius: 6px;
   font-size: 12px;
 }
 
-.badge.done {
+.done {
   background: #22c55e;
+  color: white;
 }
 
-.badge.progress {
+.progress {
   background: #3b82f6;
+  color: white;
 }
 
-.badge.todo {
-  background: #64748b;
+.todo {
+  background: #9ca3af;
+  color: white;
 }
 
 /* BUTTON */
@@ -119,7 +176,22 @@ body {
   padding: 6px 10px;
   border: none;
   border-radius: 6px;
-  background: #22c55e;
+  background: #41431B;
   color: white;
   cursor: pointer;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #eee;
+  border-radius: 10px;
+  margin: 10px 0;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #4caf50;
+  border-radius: 10px;
+  transition: 0.3s;
 }

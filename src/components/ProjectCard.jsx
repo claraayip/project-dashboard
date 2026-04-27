@@ -1,16 +1,17 @@
 import TaskList from "./TaskList";
 
-export default function ProjectCard({ project, filter, role }) {
+export default function ProjectCard({ project }) {
+  // hitung progress
   const total = project.tasks.length;
-  const done = project.tasks.filter((t) => t.status === "Done").length;
-  const progress = Math.round((done / total) * 100);
+  const done = project.tasks.filter(t => t.status === "Done").length;
+  const progress = total === 0 ? 0 : Math.round((done / total) * 100);
 
   return (
     <div className="card">
-      <h2>{project.name}</h2>
+      <h3>{project.name}</h3>
       <p>Tim: {project.team.join(", ")}</p>
 
-      <p>Progress: {progress}%</p>
+      {/* PROGRESS BAR */}
       <div className="progress-bar">
         <div
           className="progress-fill"
@@ -18,11 +19,11 @@ export default function ProjectCard({ project, filter, role }) {
         ></div>
       </div>
 
-      {role === "admin" && (
-        <button className="add-btn">+ Tambah Task</button>
-      )}
+      <p>Progress: {progress}%</p>
 
-      <TaskList tasks={project.tasks} filter={filter} />
+      <button className="add-btn">+ Tambah Task</button>
+
+      <TaskList tasks={project.tasks} />
     </div>
   );
 }

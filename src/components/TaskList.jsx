@@ -1,12 +1,9 @@
 import TaskItem from "./TaskItem";
 
-export default function TaskList({ tasks, filter }) {
-  const filteredTasks =
-    filter === "All" ? tasks : tasks.filter((t) => t.status === filter);
-
+export default function TaskList({ tasks }) {
   return (
     <div>
-      {filteredTasks.map((task) => (
+      {tasks.map((task) => (
         <TaskItem key={task.id} task={task} />
       ))}
     </div>
